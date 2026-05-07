@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ticket Detail - SmartDesk</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "tertiary-fixed-dim": "#a6c8ff",
+                        "on-secondary-fixed": "#131b2e",
+                        "outline": "#926f67",
+                        "primary-fixed-dim": "#ffb4a2",
+                        "surface-tint": "#b52700",
+                        "secondary-fixed": "#dae2fd",
+                        "background": "#fff8f6",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#dae2fd",
+                        "on-tertiary-fixed-variant": "#004787",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "on-primary-fixed-variant": "#8a1c00",
+                        "surface-container-low": "#fff0ed",
+                        "secondary": "#565e74",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#281713",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#ffede9",
+                        "surface-container": "#ffe9e4",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#005cac",
+                        "surface-container-high": "#ffe2db",
+                        "surface": "#fff8f6",
+                        "tertiary-fixed": "#d5e3ff",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#ffdad2",
+                        "primary": "#b02600",
+                        "surface-bright": "#fff8f6",
+                        "outline-variant": "#e7bdb4",
+                        "on-tertiary-fixed": "#001c3b",
+                        "on-surface": "#281713",
+                        "tertiary-container": "#0075d7",
+                        "surface-dim": "#f3d3cb",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#fffbff",
+                        "on-tertiary-container": "#fefcff",
+                        "primary-container": "#dd3200",
+                        "inverse-surface": "#402c27",
+                        "on-primary-fixed": "#3d0700",
+                        "surface-variant": "#fcdbd4",
+                        "on-secondary-container": "#5c647a",
+                        "inverse-primary": "#ffb4a2",
+                        "surface-container-highest": "#fcdbd4",
+                        "on-surface-variant": "#5d4039"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-md": "16px",
+                        "container-max": "1440px",
+                        "gutter": "24px",
+                        "stack-lg": "32px",
+                        "margin-page": "40px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display": ["Inter"],
+                        "h3": ["Inter"],
+                        "h2": ["Inter"],
+                        "h1": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "h3": ["18px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "h2": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "h1": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+                        "mono": ["13px", { "lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md fixed top-0 right-0 border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none flex justify-between items-center h-16 px-8 ml-64 w-[calc(100%-16rem)] z-50">
+<div class="flex items-center gap-6">
+<span class="font-h3 text-h3 text-on-surface">Ticket #SD-4921</span>
+<span class="bg-primary/10 text-primary font-label-sm text-label-sm px-2 py-1 rounded">Open</span>
+</div>
+<div class="flex items-center gap-4">
+<nav class="flex gap-4">
+<a class="text-slate-600 dark:text-slate-400 font-label-sm text-label-sm hover:text-slate-900 dark:hover:text-slate-100 transition-all duration-200" href="#">Queue</a>
+<a class="text-slate-600 dark:text-slate-400 font-label-sm text-label-sm hover:text-slate-900 dark:hover:text-slate-100 transition-all duration-200" href="#">SLA</a>
+<a class="text-slate-600 dark:text-slate-400 font-label-sm text-label-sm hover:text-slate-900 dark:hover:text-slate-100 transition-all duration-200" href="#">Reports</a>
+</nav>
+<div class="h-6 w-px bg-slate-200"></div>
+<button class="text-slate-500 hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-slate-500 hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+<button class="bg-[#F53D0A] text-white font-label-sm text-label-sm px-4 py-2 rounded font-medium hover:bg-opacity-90 transition-colors">Upgrade</button>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-slate-200 object-cover" data-alt="Close up portrait of a professional male user in a soft lit office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_PUD_qiEVOGl-R0FshRYJcnZfBG1QQcATgwqsR1lN-xFR7W1cPryRS4FyOP6oIpbvknNKdJ9RLGJ95OfgClAWq0cZl5Kb83w6g_2Iw2pojLNgShnrJWAyC9u0yuyAzQTi-fvVz1ncreqFy_7N48sSeTj4pW8crwwoDZ5krDPIuD8yZxnRjikLrUb5UKIz2TeT4Ngh8Bq9vMfDjanLdaRMZ6BizwOyMAf-uuiDD7Skm5I3EvLF20Wz6P0BGoeYZ8XErsXHmZVb8_z5"/>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="bg-slate-50 dark:bg-slate-950 h-screen w-64 border-r border-slate-200 dark:border-slate-800 fixed left-0 top-0 flex flex-col h-full py-6 px-4 z-50">
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white font-bold">SD</div>
+<div>
+<h1 class="text-xl font-bold text-slate-900 dark:text-white leading-none">SmartDesk</h1>
+<span class="font-label-sm text-label-sm text-slate-500">Admin Console</span>
+</div>
+</div>
+<button class="bg-primary text-white font-label-sm text-label-sm w-full py-2.5 rounded-lg font-medium mb-6 hover:bg-opacity-90 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span> New Ticket
+        </button>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 dark:text-slate-400 font-label-sm text-label-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="dashboard">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#F53D0A] bg-orange-50 dark:bg-orange-950/20 font-label-sm text-label-sm font-semibold transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="confirmation_number">confirmation_number</span> Tickets
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 dark:text-slate-400 font-label-sm text-label-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="group">group</span> Customers
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 dark:text-slate-400 font-label-sm text-label-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="auto_stories">auto_stories</span> Knowledge Base
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 dark:text-slate-400 font-label-sm text-label-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="monitoring">monitoring</span> Analytics
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 dark:text-slate-400 font-label-sm text-label-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span> Settings
+            </a>
+</nav>
+<div class="mt-auto space-y-1 pt-4 border-t border-slate-200 dark:border-slate-800">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 dark:text-slate-400 font-label-sm text-label-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="help">help</span> Help Center
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 dark:text-slate-400 font-label-sm text-label-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="logout">logout</span> Log Out
+            </a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 mt-16 p-gutter max-w-container-max mx-auto h-[calc(100vh-4rem)] overflow-y-auto">
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left Column: Ticket Details & Thread -->
+<div class="col-span-12 lg:col-span-8 flex flex-col gap-stack-md">
+<!-- Ticket Header Card -->
+<div class="bg-white rounded-lg border border-slate-200 p-gutter shadow-sm">
+<h2 class="font-h2 text-h2 text-on-surface mb-stack-sm">Cannot access production database</h2>
+<p class="font-body-md text-body-md text-secondary mb-stack-md">Reported by <span class="font-medium text-on-surface">Sarah Jenkins</span> (Tech Ops) • 2 hours ago</p>
+<div class="bg-surface-container-lowest border border-slate-100 rounded p-4 font-body-md text-body-md text-on-surface-variant">
+<p>Hi team,</p>
+<br/>
+<p>Since the deployment this morning, I'm getting a connection timeout error when trying to access the main replica. Other tools seem fine.</p>
+<br/>
+<pre class="bg-slate-50 p-3 rounded font-mono text-mono text-slate-700 border border-slate-100 overflow-x-auto">Error: Connection timed out (110) connecting to db-prod-read-01.internal:5432</pre>
+<br/>
+<p>Could someone check the firewall rules? Thanks.</p>
+</div>
+</div>
+<!-- Internal Thread -->
+<div class="bg-white rounded-lg border border-slate-200 flex flex-col h-full shadow-sm">
+<div class="p-4 border-b border-slate-100 bg-slate-50 rounded-t-lg flex justify-between items-center">
+<span class="font-h3 text-h3 text-on-surface">Internal Discussion</span>
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-2 py-1 rounded">Private</span>
+</div>
+<div class="flex-1 p-gutter overflow-y-auto flex flex-col gap-stack-lg bg-surface-container-lowest">
+<!-- Comment 1 -->
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container font-label-sm shrink-0">MJ</div>
+<div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Mike Johnson</span>
+<span class="font-label-sm text-label-sm text-secondary">1 hour ago</span>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    Looking into this now. It looks like the security group was updated during the CI/CD pipeline run.
+                                </div>
+</div>
+</div>
+<!-- System Note -->
+<div class="flex gap-4 items-center justify-center">
+<div class="h-px bg-slate-200 flex-1"></div>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-lowest px-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="label">label</span> Added tag 'urgent'
+                            </span>
+<div class="h-px bg-slate-200 flex-1"></div>
+</div>
+<!-- Comment 2 -->
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-label-sm shrink-0">You</div>
+<div class="w-full">
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Alex (You)</span>
+<span class="font-label-sm text-label-sm text-secondary">Just now</span>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant bg-primary-fixed p-3 rounded-lg border border-primary-fixed-dim">
+                                    I've rolled back the SG changes. Sarah, can you try again?
+                                </div>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-4 border-t border-slate-100 bg-white rounded-b-lg">
+<textarea class="w-full border border-slate-300 rounded p-3 font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none h-24" placeholder="Add an internal note..."></textarea>
+<div class="flex justify-between items-center mt-3">
+<div class="flex gap-2">
+<button class="text-slate-400 hover:text-slate-600 transition-colors"><span class="material-symbols-outlined" data-icon="attach_file">attach_file</span></button>
+<button class="text-slate-400 hover:text-slate-600 transition-colors"><span class="material-symbols-outlined" data-icon="image">image</span></button>
+</div>
+<button class="bg-primary text-white font-label-sm text-label-sm px-4 py-2 rounded font-medium hover:bg-opacity-90 transition-colors">Add Note</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Metadata & Status -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-stack-md">
+<!-- Status Tracker -->
+<div class="bg-white rounded-lg border border-slate-200 p-gutter shadow-sm">
+<h3 class="font-h3 text-h3 text-on-surface mb-stack-md">Resolution SLA</h3>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-end">
+<span class="font-h2 text-h2 text-primary">1h 45m</span>
+<span class="font-label-sm text-label-sm text-secondary">Remaining</span>
+</div>
+<div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[65%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Properties Grid -->
+<div class="bg-white rounded-lg border border-slate-200 p-gutter shadow-sm">
+<div class="flex justify-between items-center mb-stack-md">
+<h3 class="font-h3 text-h3 text-on-surface">Properties</h3>
+<button class="text-primary font-label-sm text-label-sm hover:underline">Edit</button>
+</div>
+<div class="space-y-4">
+<div>
+<span class="block font-label-sm text-label-sm text-secondary mb-1">Assignee</span>
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-label-sm text-[10px]">AL</div>
+<span class="font-body-md text-body-md text-on-surface">Alex Lee</span>
+</div>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-secondary mb-1">Priority</span>
+<span class="inline-flex items-center gap-1 bg-error-container text-on-error-container font-label-sm text-label-sm px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]" data-icon="keyboard_double_arrow_up">keyboard_double_arrow_up</span> High
+                            </span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-secondary mb-1">Category</span>
+<span class="font-body-md text-body-md text-on-surface">Infrastructure &gt; Database</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-secondary mb-1">Tags</span>
+<div class="flex gap-2 flex-wrap">
+<span class="bg-slate-100 text-slate-700 font-label-sm text-label-sm px-2 py-1 rounded border border-slate-200">urgent</span>
+<span class="bg-slate-100 text-slate-700 font-label-sm text-label-sm px-2 py-1 rounded border border-slate-200">production</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Requester Info -->
+<div class="bg-white rounded-lg border border-slate-200 p-gutter shadow-sm">
+<h3 class="font-h3 text-h3 text-on-surface mb-stack-md">Requester</h3>
+<div class="flex items-center gap-3 mb-4">
+<img alt="Sarah Jenkins" class="w-10 h-10 rounded-full object-cover" data-alt="Professional headshot of a female tech worker with neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcTOYc9kalI2XsMh-qGDqjZXllOSk4thDmVp9bjqmUvt9WU1iCJF2oY7X_EaE3Ki9-PUCtwo7uCf8S3lLsnTV2DR5rbq90TgjVRVbkTCbs329zGdMPh3HNxuvSr_01WUKFBr2s5SyrtbBVUIkdRSvQbQr0VKJ6OyBuCWY1DnPOBDVrrROyd0uX4cMhThPrrT2n9e1JkL2lYumZTT9woMBZfBiNCRgjzlSiYpfcjNbI2IFgfTN9XRzqV2XWSMxBBnfLXEJRLiU27cIB"/>
+<div>
+<div class="font-body-md text-body-md font-medium text-on-surface">Sarah Jenkins</div>
+<div class="font-label-sm text-label-sm text-secondary">Tech Ops Engineer</div>
+</div>
+</div>
+<div class="space-y-2 font-body-md text-body-md">
+<div class="flex gap-2 text-secondary">
+<span class="material-symbols-outlined text-[18px]" data-icon="mail">mail</span>
+<a class="text-primary hover:underline truncate" href="#">s.jenkins@company.com</a>
+</div>
+<div class="flex gap-2 text-secondary">
+<span class="material-symbols-outlined text-[18px]" data-icon="history">history</span>
+<span>4 past tickets</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

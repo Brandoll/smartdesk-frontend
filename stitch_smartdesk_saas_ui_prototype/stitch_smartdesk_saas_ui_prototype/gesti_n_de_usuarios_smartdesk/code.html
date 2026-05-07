@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartDesk - User Management</title>
+<!-- Google Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#fefcff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#001c3b",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-bright": "#fff8f6",
+                        "surface-dim": "#f3d3cb",
+                        "surface-container-high": "#ffe2db",
+                        "on-surface-variant": "#5d4039",
+                        "primary-fixed-dim": "#ffb4a2",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-tint": "#b52700",
+                        "on-tertiary-fixed-variant": "#004787",
+                        "surface-variant": "#fcdbd4",
+                        "outline-variant": "#e7bdb4",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#dd3200",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#ffe9e4",
+                        "inverse-on-surface": "#ffede9",
+                        "surface": "#fff8f6",
+                        "primary-fixed": "#ffdad2",
+                        "on-surface": "#281713",
+                        "surface-container-low": "#fff0ed",
+                        "primary": "#b02600",
+                        "on-primary-fixed": "#3d0700",
+                        "on-primary-fixed-variant": "#8a1c00",
+                        "background": "#fff8f6",
+                        "tertiary": "#005cac",
+                        "secondary": "#5d5f5f",
+                        "surface-container-highest": "#fcdbd4",
+                        "on-secondary-container": "#616363",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#402c27",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#dfe0e0",
+                        "on-error": "#ffffff",
+                        "outline": "#926f67",
+                        "tertiary-container": "#0075d7",
+                        "tertiary-fixed": "#d5e3ff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#a6c8ff",
+                        "on-background": "#281713",
+                        "inverse-primary": "#ffb4a2",
+                        "on-primary-container": "#fffbff",
+                        "on-secondary-fixed": "#1a1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "48px",
+                        "container-max": "1440px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Inter"],
+                        "h3": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h1": ["Inter"],
+                        "body-md": ["Inter"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h2": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "h3": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "h1": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "mono": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background flex h-screen overflow-hidden antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- SideNavBar (Shared Component) -->
+<aside class="bg-white dark:bg-gray-900 font-['Inter'] text-sm font-medium h-screen w-64 border-r fixed left-0 top-0 border-gray-200 dark:border-gray-800 shadow-none flex flex-col h-full py-6 z-50">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-[#F53D0A] flex items-center justify-center text-white font-bold">S</div>
+<div>
+<h1 class="text-lg font-black tracking-tight text-gray-900 dark:text-white leading-none">SmartDesk</h1>
+<span class="text-xs text-gray-500 font-medium">Internal Management</span>
+</div>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<!-- Active (Usuarios Intent) -->
+<a class="flex items-center gap-3 px-4 py-2 text-[#F53D0A] bg-orange-50 dark:bg-orange-900/20 border-r-4 border-[#F53D0A] duration-200 ease-in-out rounded-l-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+                Usuarios
+            </a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+                Áreas
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="confirmation_number">confirmation_number</span>
+                Tickets
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+                Reportes
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Configuración
+            </a>
+</nav>
+<div class="px-6 mt-auto">
+<div class="flex items-center gap-3 p-3 rounded-lg bg-gray-50 border border-gray-100">
+<img alt="Admin Profile" class="w-8 h-8 rounded-full shadow-sm" data-alt="Close up portrait of a professional man in a modern office environment, warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARW4xQHRiEGs6iYzRKQApEJ0rK5nJBZtfrDpWPYvxICkPwUd8_Ue6gTlOddfYyn44HzCqGIQ5iJLFQU_OOJRTgB58MMc9MJlxqpM4iE60eonQxttGB0IrWnWi8_eObEcBVTyYL8bqrfIr2UxfMfolkMUfZxRosyIpG8UTCL0jBAsfsLMXdLgo-ezPkEBkSIlgOCR0DcDgq3_CTvr-KbOmXyouUBuHmkj5CAFUuJufPS7-uyCZlwnNip5aaz4o8W3R0GptncaBcir-_"/>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold text-gray-900 truncate">Admin User</p>
+<p class="text-xs text-gray-500 truncate">System Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 ml-64 flex flex-col h-screen">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-white dark:bg-gray-900 font-['Inter'] antialiased docked full-width top-0 border-b border-gray-200 dark:border-gray-800 shadow-sm flex justify-between items-center h-16 px-6 w-full sticky top-0 z-40">
+<!-- Search Bar (on_left) -->
+<div class="flex-1 max-w-md flex items-center">
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-400 text-lg" data-icon="search">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-lg leading-5 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:bg-white focus:border-[#F53D0A] focus:ring-1 focus:ring-[#F53D0A] sm:text-sm transition-colors" placeholder="Search across SmartDesk..." type="text"/>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<button class="text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors p-2 rounded-full cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors p-2 rounded-full cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full border-2 border-gray-200 overflow-hidden ml-2 cursor-pointer">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="Close up portrait of a professional man in a modern office environment, warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwq6YCdqKjwcgPSUp3EpJ6ArsLG_cseWLrur5ANuUTiSi2c92cwV0jGkXf0hgKWDS6YVKXJ_OSS5cPIxgZM_nL8QG4A6qCTvU1VWiwNRio-N5O0tGmpZ2ia7zYDxRS9hFOprdLjbtta22l-fKrOOSrwqeVgkfWuKoqDn80Uw8cQyToDZBgF8IY0qEM-eH6itawpnd0i24GPCmO0jVPv6sDRNXCOY1_l5PUiSxRKoxUIBdtXAj6y8mOTKUtk3ZBcUxSbAhaLW0qKzko"/>
+</div>
+</div>
+</header>
+<!-- Canvas Area -->
+<main class="flex-1 overflow-y-auto p-lg bg-background">
+<div class="max-w-container-max mx-auto space-y-lg">
+<!-- Page Header -->
+<div class="flex items-end justify-between">
+<div>
+<h1 class="font-h1 text-h1 text-on-surface">Usuarios</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm">Manage access, roles, and organizational areas for team members.</p>
+</div>
+<button class="bg-primary text-on-primary font-body-sm text-body-sm font-semibold px-md py-sm rounded flex items-center gap-2 shadow-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+                        Invite User
+                    </button>
+</div>
+<!-- Controls / Filters -->
+<div class="bg-surface-container-lowest p-md rounded-lg shadow-[0px_1px_3px_rgba(0,0,0,0.05),0px_1px_2px_rgba(0,0,0,0.1)] border border-outline-variant flex flex-wrap gap-md items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="filter_list">filter_list</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">FILTERS</span>
+</div>
+<!-- Role Filter -->
+<div class="relative">
+<select class="appearance-none bg-surface border border-outline-variant text-on-surface font-body-sm text-body-sm rounded px-md py-sm pr-10 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_0_2px_rgba(176,38,0,0.1)] transition-all cursor-pointer">
+<option value="">All Roles</option>
+<option value="admin">Administrator</option>
+<option value="manager">Area Manager</option>
+<option value="agent">Support Agent</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Area Filter -->
+<div class="relative">
+<select class="appearance-none bg-surface border border-outline-variant text-on-surface font-body-sm text-body-sm rounded px-md py-sm pr-10 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_0_2px_rgba(176,38,0,0.1)] transition-all cursor-pointer">
+<option value="">All Areas</option>
+<option value="it">IT Support</option>
+<option value="hr">Human Resources</option>
+<option value="facilities">Facilities</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]" data-icon="search">search</span>
+<input class="bg-surface border border-outline-variant text-on-surface font-body-sm text-body-sm rounded pl-10 pr-md py-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_0_2px_rgba(176,38,0,0.1)] transition-all w-64" placeholder="Search specific user..." type="text"/>
+</div>
+</div>
+<!-- User List Canvas (Table Alternative layout) -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-[0px_1px_3px_rgba(0,0,0,0.05),0px_1px_2px_rgba(0,0,0,0.1)] overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="font-label-caps text-label-caps text-on-surface-variant py-md px-lg font-semibold uppercase tracking-wider">User</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant py-md px-lg font-semibold uppercase tracking-wider">Role</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant py-md px-lg font-semibold uppercase tracking-wider">Assigned Area</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant py-md px-lg font-semibold uppercase tracking-wider">Status</th>
+<th class="py-md px-lg text-right"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- User Row 1 -->
+<tr class="hover:bg-surface transition-colors group cursor-pointer">
+<td class="py-md px-lg">
+<div class="flex items-center gap-sm">
+<img alt="Sarah Jenkins" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="Professional headshot of a smiling woman with dark hair in a well-lit modern office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbqWCcKAk6aRsT6pHU0vyyedQD2Wu4uSWa5fDMqB_wNi14bVPrArvy8VhtUapP4jPJ3qngyNPDobX5dFcRG69-LLoy4FO8lGykLW_DFuK6gNZvxdGVfA3gVxVzHaH8-TGX7lrUp80eGMbRpDNkv3MIrsk7DCClmN6OL5UxUUvYYvNoFQlg5MTdOrjEtFlvMEVW6wgQsNWNhvMgIDCJFPBE7-kG3Dt92Bt_I0CPvU2EwT9XyqPRiY3oNQfJ9BxzoUiLMLQnunSUqBqQ"/>
+<div>
+<div class="font-body-md text-body-md font-medium text-on-surface">Sarah Jenkins</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">sarah.j@smartdesk.corp</div>
+</div>
+</div>
+</td>
+<td class="py-md px-lg font-body-sm text-body-sm text-on-surface">Administrator</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center gap-xs font-body-sm text-body-sm text-on-surface bg-secondary-fixed px-sm py-xs rounded-DEFAULT border border-secondary-fixed-dim">
+<span class="material-symbols-outlined text-[14px]" data-icon="business_center">business_center</span>
+                                        All Areas
+                                    </span>
+</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center gap-xs px-sm py-xs rounded-full font-label-caps text-label-caps bg-tertiary-fixed text-on-tertiary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                                        Active
+                                    </span>
+</td>
+<td class="py-md px-lg text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100 p-sm rounded-full hover:bg-primary-fixed">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- User Row 2 -->
+<tr class="hover:bg-surface transition-colors group cursor-pointer">
+<td class="py-md px-lg">
+<div class="flex items-center gap-sm">
+<img alt="Michael Chen" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="Professional headshot of a man with glasses looking confident against a clean grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL0hYeQN2nzlQPB2e8ebIuMQ9F6tEwy6aTPZNdOA-jZkqctYM8lkYY5eS8UlihLvSK50mIGmimmMtw2HbNRFiG8Xta8DqNPszPgAQbumzJICVZllvzYWfGNbJp01Bw9hdqEKx95ShiauBoEC5ETjsiEVEYjHnUXu8gZ2edy1yiJSxSGbj1VC269S2OPePRW3mrkG0jsyZiWoJEK-uRTUoRBNxn4NKptNrnvkCVOrTbrYRUtQTXioiJSpiuqb8rdeVtiRHfdDV7_YWm"/>
+<div>
+<div class="font-body-md text-body-md font-medium text-on-surface">Michael Chen</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">m.chen@smartdesk.corp</div>
+</div>
+</div>
+</td>
+<td class="py-md px-lg font-body-sm text-body-sm text-on-surface">Area Manager</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center gap-xs font-body-sm text-body-sm text-on-surface bg-surface-container-high px-sm py-xs rounded-DEFAULT border border-outline-variant">
+<span class="material-symbols-outlined text-[14px]" data-icon="dns">dns</span>
+                                        IT Support
+                                    </span>
+</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center gap-xs px-sm py-xs rounded-full font-label-caps text-label-caps bg-tertiary-fixed text-on-tertiary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                                        Active
+                                    </span>
+</td>
+<td class="py-md px-lg text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100 p-sm rounded-full hover:bg-primary-fixed">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- User Row 3 -->
+<tr class="hover:bg-surface transition-colors group cursor-pointer">
+<td class="py-md px-lg">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-h3 text-h3 border border-outline-variant">
+                                            EJ
+                                        </div>
+<div>
+<div class="font-body-md text-body-md font-medium text-on-surface">Elena Rodriguez</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">elena.r@smartdesk.corp</div>
+</div>
+</div>
+</td>
+<td class="py-md px-lg font-body-sm text-body-sm text-on-surface">Support Agent</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center gap-xs font-body-sm text-body-sm text-on-surface bg-surface-container-high px-sm py-xs rounded-DEFAULT border border-outline-variant">
+<span class="material-symbols-outlined text-[14px]" data-icon="groups">groups</span>
+                                        Human Resources
+                                    </span>
+</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center gap-xs px-sm py-xs rounded-full font-label-caps text-label-caps bg-secondary-container text-on-secondary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                        Pending Invite
+                                    </span>
+</td>
+<td class="py-md px-lg text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100 p-sm rounded-full hover:bg-primary-fixed">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- User Row 4 -->
+<tr class="hover:bg-surface transition-colors group cursor-pointer">
+<td class="py-md px-lg">
+<div class="flex items-center gap-sm">
+<img alt="Marcus Johnson" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="Professional headshot of a mature man with a beard looking focused, architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHyorwk2k07MY9BJSKF283oItXeDndahrqjqRyj-v22pX3YE2454pt3Ah9zeZUToeRosE6XKtOnziaSyQfaoZ5DCMCQjHlx8gvNHagv2MctSWIPnwZE9DogUlbir2EJL4VzqRQ4b2E2Sm95sTF4sBaZ2RDYOO3osec6dFdPyrqS-dYZy_008nFYz1GOkgJOZlQVryNt1YAuLmHsxSTcScULfSz68o3NC0FW2AmpTyeVxxbyWLVBt4cW4nVUpCh238w6P5J0nn3nAhl"/>
+<div>
+<div class="font-body-md text-body-md font-medium text-on-surface">Marcus Johnson</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">mjohnson@smartdesk.corp</div>
+</div>
+</div>
+</td>
+<td class="py-md px-lg font-body-sm text-body-sm text-on-surface">Support Agent</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center gap-xs font-body-sm text-body-sm text-on-surface bg-surface-container-high px-sm py-xs rounded-DEFAULT border border-outline-variant">
+<span class="material-symbols-outlined text-[14px]" data-icon="home_work">home_work</span>
+                                        Facilities
+                                    </span>
+</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center gap-xs px-sm py-xs rounded-full font-label-caps text-label-caps bg-error-container text-on-error-container">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                        Suspended
+                                    </span>
+</td>
+<td class="py-md px-lg text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100 p-sm rounded-full hover:bg-primary-fixed">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination Footer -->
+<div class="bg-surface-container-low border-t border-outline-variant px-lg py-sm flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing 1 to 4 of 48 users</span>
+<div class="flex items-center gap-sm">
+<button class="p-xs text-on-surface-variant hover:text-primary hover:bg-surface rounded disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<span class="font-body-sm text-body-sm text-on-surface font-medium px-sm">1</span>
+<button class="p-xs text-on-surface-variant hover:text-primary hover:bg-surface rounded">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

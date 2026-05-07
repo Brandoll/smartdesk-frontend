@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartDesk - Ticket Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#fefcff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#001c3b",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-bright": "#fff8f6",
+                        "surface-dim": "#f3d3cb",
+                        "surface-container-high": "#ffe2db",
+                        "on-surface-variant": "#5d4039",
+                        "primary-fixed-dim": "#ffb4a2",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-tint": "#b52700",
+                        "on-tertiary-fixed-variant": "#004787",
+                        "surface-variant": "#fcdbd4",
+                        "outline-variant": "#e7bdb4",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#dd3200",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#ffe9e4",
+                        "inverse-on-surface": "#ffede9",
+                        "surface": "#fff8f6",
+                        "primary-fixed": "#ffdad2",
+                        "on-surface": "#281713",
+                        "surface-container-low": "#fff0ed",
+                        "primary": "#b02600",
+                        "on-primary-fixed": "#3d0700",
+                        "on-primary-fixed-variant": "#8a1c00",
+                        "background": "#fff8f6",
+                        "tertiary": "#005cac",
+                        "secondary": "#5d5f5f",
+                        "surface-container-highest": "#fcdbd4",
+                        "on-secondary-container": "#616363",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#402c27",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#dfe0e0",
+                        "on-error": "#ffffff",
+                        "outline": "#926f67",
+                        "tertiary-container": "#0075d7",
+                        "tertiary-fixed": "#d5e3ff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#a6c8ff",
+                        "on-background": "#281713",
+                        "inverse-primary": "#ffb4a2",
+                        "on-primary-container": "#fffbff",
+                        "on-secondary-fixed": "#1a1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "48px",
+                        "container-max": "1440px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Inter"],
+                        "h3": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h1": ["Inter"],
+                        "body-md": ["Inter"],
+                        "mono": ["JetBrains Mono, monospace"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h2": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "h3": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "h1": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "mono": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .level-1-shadow {
+            box-shadow: 0px 1px 3px rgba(0,0,0,0.05), 0px 1px 2px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased overflow-hidden flex h-screen">
+<!-- SideNavBar (Shared Component) -->
+<nav class="bg-white dark:bg-gray-900 font-['Inter'] text-sm font-medium h-screen w-64 border-r fixed left-0 top-0 border-gray-200 dark:border-gray-800 shadow-none flex flex-col py-6 z-50">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary text-on-primary flex items-center justify-center font-bold">SD</div>
+<div>
+<h1 class="text-lg font-black tracking-tight text-gray-900 dark:text-white">SmartDesk</h1>
+<p class="text-xs text-gray-500">Internal Management</p>
+</div>
+</div>
+<div class="flex flex-col gap-1 w-full">
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+                Usuarios
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="domain">domain</span>
+                Áreas
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-[#F53D0A] bg-orange-50 dark:bg-orange-900/20 border-r-4 border-[#F53D0A] duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="confirmation_number">confirmation_number</span>
+                Tickets
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="bar_chart">bar_chart</span>
+                Reportes
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+                Configuración
+            </a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 ml-64 flex flex-col h-screen overflow-hidden">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-white dark:bg-gray-900 font-['Inter'] antialiased docked full-width top-0 border-b border-gray-200 dark:border-gray-800 shadow-sm flex justify-between items-center h-16 px-6 w-full sticky top-0 z-40">
+<!-- Search Bar on Left -->
+<div class="flex items-center relative w-96">
+<span class="material-symbols-outlined absolute left-3 text-gray-400 text-[20px]" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface border border-secondary-fixed rounded-md focus:outline-none focus:border-[#F53D0A] focus:ring-2 focus:ring-[#F53D0A]/10 text-body-sm font-body-sm text-on-surface transition-all" placeholder="Search tickets..." type="text"/>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<button class="text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer active:opacity-80 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]" data-icon="notifications">notifications</span>
+</button>
+<button class="text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer active:opacity-80 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-secondary-fixed ml-2">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="close-up portrait of a smiling professional man with short dark hair in a well-lit office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAxC9ZsCBG9r0ZjQukAhCrQSVu6It1jgRJVgYC1wZ7Pl5jInuQXdyK0CeEAd1oRJC7qwrBaOxC9a1YhBXbhRvfW3iGkl_Di4bpbdlZ-zS0w-9eQ3w-QYr5eGMoztdlvugiY1gz9P1v_9NIpAQ-w8SgElZDMikrGP6B0spvvZHof7qHzcVa0jE6Yav-p9ZpbVY7X6XBC6LzKWKY_5_P-nyCedRVcIcCLLWqVlOG6xPLOJXJRom2X9VJFb_H9i1icmw4Vakr0opCD1Ud"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<main class="flex-1 overflow-y-auto p-lg bg-background">
+<div class="max-w-container-max mx-auto space-y-lg">
+<!-- Ticket Header & Actions -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-sm">
+<div>
+<div class="flex items-center gap-3 mb-xs">
+<span class="font-mono text-mono text-secondary uppercase tracking-wider">TCK-8492</span>
+<span class="px-2 py-0.5 rounded text-label-caps font-label-caps bg-surface-variant text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+                                Pending
+                            </span>
+<span class="px-2 py-0.5 rounded text-label-caps font-label-caps bg-error-container text-on-error-container flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] icon-fill" data-icon="warning">warning</span>
+                                High Priority
+                            </span>
+</div>
+<h1 class="font-h1 text-h1 text-on-surface">Cannot access VPN from external network</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="px-4 py-2 bg-surface-container-lowest border border-secondary-fixed text-on-surface rounded-md font-body-sm text-body-sm font-medium hover:bg-surface transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+                            Edit Ticket
+                        </button>
+<button class="px-4 py-2 bg-[#F53D0A] text-white rounded-md font-body-sm text-body-sm font-medium hover:bg-[#d63508] transition-colors flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle">check_circle</span>
+                            Resolve
+                        </button>
+</div>
+</div>
+<!-- 12-Column Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Primary Content (8 cols) -->
+<div class="md:col-span-8 flex flex-col gap-lg">
+<!-- Description Card -->
+<div class="bg-surface-container-lowest rounded-lg border border-secondary-fixed level-1-shadow overflow-hidden">
+<div class="px-md py-sm border-b border-secondary-fixed flex justify-between items-center bg-surface/50">
+<h3 class="font-h3 text-h3 text-on-surface">Description</h3>
+<div class="flex items-center gap-2 text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+                                    Only visible to internal agents
+                                </div>
+</div>
+<div class="p-md text-on-surface-variant font-body-lg text-body-lg leading-relaxed space-y-4">
+<p>User is reporting an inability to connect to the corporate VPN using the standard Cisco AnyConnect client. The issue started occurring after the recent Windows 11 update pushed last night.</p>
+<p><strong>Steps taken by user:</strong></p>
+<ul class="list-disc pl-5 space-y-1">
+<li>Restarted computer.</li>
+<li>Re-entered credentials.</li>
+<li>Attempted connection from a different Wi-Fi network (mobile hotspot).</li>
+</ul>
+<p>Error code presented: <code>ERR_SEC_CERT_REVOKED</code>.</p>
+<!-- Attachments -->
+<div class="mt-6 pt-4 border-t border-secondary-fixed flex flex-wrap gap-sm">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface rounded border border-secondary-fixed text-on-surface font-body-sm text-body-sm cursor-pointer hover:border-primary-fixed-dim transition-colors">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="image">image</span>
+                                        error_screenshot.png
+                                    </div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface rounded border border-secondary-fixed text-on-surface font-body-sm text-body-sm cursor-pointer hover:border-primary-fixed-dim transition-colors">
+<span class="material-symbols-outlined text-[16px] text-error" data-icon="description">description</span>
+                                        system_logs.txt
+                                    </div>
+</div>
+</div>
+</div>
+<!-- Comments Section -->
+<div class="flex flex-col gap-md">
+<h3 class="font-h3 text-h3 text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+                                Activity &amp; Comments
+                            </h3>
+<!-- Comment Input -->
+<div class="bg-surface-container-lowest rounded-lg border border-secondary-fixed level-1-shadow p-md flex gap-4 items-start">
+<img alt="Current User" class="w-10 h-10 rounded-full object-cover border border-secondary-fixed" data-alt="close-up portrait of a smiling professional man with short dark hair in a well-lit office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3VYgH5dp-fJFq3sU1-dbrvfg8oy4G3u_wRIUdfLBdhHRXjcLiHfC-ymCSQlRSSn5LaDNoWJbAGyyfF9hoP9XUirFKBb5c7_AZ28x20nmUmHvpIcB4qFjeKwnSc1FnTzXzB8kWuZSwuFUIASk6GIjjZMB5BJYlYgcXRayTyOV26jPDtCyfOjA-WDeevkgwcfFrpQ-KUdaVk5c_nCSOFd7s3thcfWFcbINZbMOr56akn9mkKibohW1M9WQlzMaYrO7c_PY-QtYn6HT9"/>
+<div class="flex-1 flex flex-col gap-sm">
+<textarea class="w-full bg-surface border border-secondary-fixed rounded-md p-3 focus:outline-none focus:border-[#F53D0A] focus:ring-2 focus:ring-[#F53D0A]/10 text-body-md font-body-md text-on-surface resize-none min-h-[100px]" placeholder="Add a comment or internal note..."></textarea>
+<div class="flex justify-between items-center">
+<div class="flex gap-2 text-secondary">
+<button class="p-1 hover:bg-surface-variant rounded"><span class="material-symbols-outlined text-[20px]" data-icon="attach_file">attach_file</span></button>
+<button class="p-1 hover:bg-surface-variant rounded"><span class="material-symbols-outlined text-[20px]" data-icon="alternate_email">alternate_email</span></button>
+</div>
+<button class="px-4 py-2 bg-secondary-container text-on-secondary-container rounded-md font-body-sm text-body-sm font-medium hover:bg-secondary-fixed transition-colors">
+                                            Comment
+                                        </button>
+</div>
+</div>
+</div>
+<!-- Comment Thread -->
+<div class="space-y-4">
+<div class="flex gap-4 items-start">
+<img alt="Sarah Jenkins" class="w-10 h-10 rounded-full object-cover border border-secondary-fixed" data-alt="professional portrait of a young woman with dark hair tied back, wearing a blazer in a bright office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZLDjBTl5YVuYPm-61RTVDTdPBZxci2H4mWSgGTNHTaZi1rfVbdoWho3Q1nw-yZOat_Q8rFbHa8ZLQQMjtSUfj92j4wA1iZ3i3Qb1M5lYYSQlm9Xsb4bQjF68ko8kdAIdmlpTW738OXAVbUDcUHC1wr3-jLciDioQPHjcE-PXoOWaCpCDspfZFM7v7zohnhLEiVux7QFqRIXHA-owB9ylAe4hYCT5_f2LaSRwv1Onjti7sZSkz23ezEfKS6swuRLsxZlVUl9ai-a0h"/>
+<div class="flex-1 bg-surface-container-lowest rounded-lg border border-secondary-fixed p-4 level-1-shadow relative">
+<!-- Speech bubble pointer -->
+<div class="absolute -left-2 top-4 w-4 h-4 bg-surface-container-lowest border-l border-t border-secondary-fixed transform -rotate-45"></div>
+<div class="flex justify-between items-baseline mb-2">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Sarah Jenkins <span class="text-secondary font-normal ml-1">assigned to you</span></span>
+<span class="font-body-sm text-body-sm text-secondary">2 hours ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">I've verified the user's account status in AD, everything looks active. I suspect the recent OS update might have corrupted the local certificate store. Could you remote in and check?</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Meta & Timeline (4 cols) -->
+<div class="md:col-span-4 flex flex-col gap-lg">
+<!-- Details Card -->
+<div class="bg-surface-container-lowest rounded-lg border border-secondary-fixed level-1-shadow overflow-hidden">
+<div class="px-md py-sm border-b border-secondary-fixed bg-surface/50">
+<h3 class="font-h3 text-h3 text-on-surface">Ticket Details</h3>
+</div>
+<div class="p-md flex flex-col gap-4">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Requester</span>
+<div class="flex items-center gap-2 text-on-surface font-body-md text-body-md">
+<img alt="Michael Chang" class="w-6 h-6 rounded-full" data-alt="portrait of a man with glasses looking thoughtful in a corporate setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_mqYfhIDyt06p7as_g1whtATq6AQOcke1b0M56vgJxDIF6OipH9LKf9p9nZptbRF9vfg833aXGM14OD5FOmqWuGywM24AwtxIkpIsxTwJ0HeIA40G1i8o6nBsRwL0wkw8SJwT7zyhFn0cPCM3Gx3nO_KX1HaMo4q9rWMerNmv6Qyi466bynhEZMbBULJU06u1cHJnKUSOqOymoM4SmWr1jrR3a4tIijS0HeSDF1FD90ckCvPOLNCVr7KuUMwkp5PIuELEJiuYv78H"/>
+                                        Michael Chang
+                                    </div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Assignee</span>
+<div class="flex items-center gap-2 text-on-surface font-body-md text-body-md">
+<img alt="Current User" class="w-6 h-6 rounded-full" data-alt="close-up portrait of a smiling professional man with short dark hair in a well-lit office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2t-let7yr8TRIHREutGh3uJw9NSnGF4iekOSzK53HiESKcmS-O4hJLG2Xb3HqJi3nJjUVo86jMFLH48EWMdSWrr5v01JRrkIPi70PFrNdALqg7D_VdI4paaQJ4twJOi1MtJONHKyAxkYaWvsuNkUS3oaMA6_0ZNVshZvpoEoKGbFRXy-7wrJDk09Y_kkmnaLFtx89NF3fiHIeQ6VT1NNnQAqebo3DlQSpmRVGDfFdXumu0tbULd7eFsNvfpZjv1X8ttijaQ7GMld5"/>
+                                        Alex Rivera (You)
+                                    </div>
+</div>
+<div class="h-px w-full bg-secondary-fixed my-1"></div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Department</span>
+<span class="font-body-md text-body-md text-on-surface">Sales</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Category</span>
+<span class="font-body-md text-body-md text-on-surface">Network/VPN</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 mt-2">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">SLA Target</span>
+<div class="flex items-center gap-2 text-error font-body-md text-body-md font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="timer">timer</span>
+                                        Due in 1h 45m
+                                    </div>
+</div>
+</div>
+</div>
+<!-- Timeline/History Card -->
+<div class="bg-surface-container-lowest rounded-lg border border-secondary-fixed level-1-shadow overflow-hidden">
+<div class="px-md py-sm border-b border-secondary-fixed bg-surface/50">
+<h3 class="font-h3 text-h3 text-on-surface">History</h3>
+</div>
+<div class="p-md pt-6">
+<div class="relative border-l-2 border-secondary-fixed ml-3 space-y-6 pb-2">
+<!-- Timeline Item -->
+<div class="relative pl-6">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-surface-container-lowest border-2 border-primary-fixed-dim"></div>
+<div class="flex flex-col gap-0.5">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Assigned to Alex Rivera</span>
+<span class="font-body-sm text-body-sm text-secondary">by Sarah Jenkins • 2h ago</span>
+</div>
+</div>
+<!-- Timeline Item -->
+<div class="relative pl-6">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-surface-container-lowest border-2 border-secondary-fixed"></div>
+<div class="flex flex-col gap-0.5">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Priority changed to High</span>
+<span class="font-body-sm text-body-sm text-secondary">by System • 2.5h ago</span>
+</div>
+</div>
+<!-- Timeline Item -->
+<div class="relative pl-6">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-surface-container-lowest border-2 border-secondary-fixed"></div>
+<div class="flex flex-col gap-0.5">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Ticket Created</span>
+<span class="font-body-sm text-body-sm text-secondary">by Michael Chang • 3h ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

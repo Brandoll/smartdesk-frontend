@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartDesk - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "tertiary-fixed-dim": "#a6c8ff",
+                        "on-secondary-fixed": "#131b2e",
+                        "outline": "#926f67",
+                        "primary-fixed-dim": "#ffb4a2",
+                        "surface-tint": "#b52700",
+                        "secondary-fixed": "#dae2fd",
+                        "background": "#fff8f6",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#dae2fd",
+                        "on-tertiary-fixed-variant": "#004787",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "on-primary-fixed-variant": "#8a1c00",
+                        "surface-container-low": "#fff0ed",
+                        "secondary": "#565e74",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#281713",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#ffede9",
+                        "surface-container": "#ffe9e4",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#005cac",
+                        "surface-container-high": "#ffe2db",
+                        "surface": "#fff8f6",
+                        "tertiary-fixed": "#d5e3ff",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#ffdad2",
+                        "primary": "#b02600",
+                        "surface-bright": "#fff8f6",
+                        "outline-variant": "#e7bdb4",
+                        "on-tertiary-fixed": "#001c3b",
+                        "on-surface": "#281713",
+                        "tertiary-container": "#0075d7",
+                        "surface-dim": "#f3d3cb",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#fffbff",
+                        "on-tertiary-container": "#fefcff",
+                        "primary-container": "#dd3200",
+                        "inverse-surface": "#402c27",
+                        "on-primary-fixed": "#3d0700",
+                        "surface-variant": "#fcdbd4",
+                        "on-secondary-container": "#5c647a",
+                        "inverse-primary": "#ffb4a2",
+                        "surface-container-highest": "#fcdbd4",
+                        "on-surface-variant": "#5d4039"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-md": "16px",
+                        "container-max": "1440px",
+                        "gutter": "24px",
+                        "stack-lg": "32px",
+                        "margin-page": "40px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display": ["Inter"],
+                        "h3": ["Inter"],
+                        "h2": ["Inter"],
+                        "h1": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "h3": ["18px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "h2": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "h1": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+                        "mono": ["13px", { "lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F8FAFC; }
+        .micro-elevation { box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02); }
+        .nav-active { color: #F53D0A !important; background-color: rgba(245, 61, 10, 0.05) !important; font-weight: 600 !important; }
+        .nav-inactive { color: #64748B; }
+    </style>
+</head>
+<body class="font-body-md text-body-md text-on-surface antialiased overflow-x-hidden">
+<!-- SideNavBar -->
+<nav class="h-screen w-64 border-r fixed left-0 top-0 border-r border-slate-200 bg-slate-50 flex flex-col h-full py-6 px-4 z-20">
+<div class="mb-8 px-2 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-[#F53D0A] text-white flex items-center justify-center font-bold text-lg">S</div>
+<div>
+<h1 class="text-xl font-bold text-slate-900 leading-tight">SmartDesk</h1>
+<p class="font-label-sm text-label-sm text-slate-500">Admin Console</p>
+</div>
+</div>
+<button class="w-full bg-[#F53D0A] text-white rounded-lg py-2 px-4 font-label-sm text-label-sm flex items-center justify-center gap-2 mb-8 hover:bg-orange-600 transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            New Ticket
+        </button>
+<ul class="flex flex-col gap-1 flex-1 font-inter antialiased text-sm font-medium">
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg nav-active transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                    Dashboard
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg nav-inactive hover:bg-slate-100 hover:text-slate-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">confirmation_number</span>
+                    Tickets
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg nav-inactive hover:bg-slate-100 hover:text-slate-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+                    Customers
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg nav-inactive hover:bg-slate-100 hover:text-slate-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_stories</span>
+                    Knowledge Base
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg nav-inactive hover:bg-slate-100 hover:text-slate-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">monitoring</span>
+                    Analytics
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg nav-inactive hover:bg-slate-100 hover:text-slate-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                    Settings
+                </a>
+</li>
+</ul>
+<div class="mt-auto flex flex-col gap-1 border-t border-slate-200 pt-4 font-inter antialiased text-sm font-medium">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg nav-inactive hover:bg-slate-100 hover:text-slate-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg nav-inactive hover:bg-slate-100 hover:text-slate-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+                Log Out
+            </a>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 border-b border-b border-slate-200 bg-white/80 backdrop-blur-md shadow-sm flex justify-between items-center h-16 px-8 ml-64 w-[calc(100%-16rem)] z-10 font-inter text-sm transition-all duration-200">
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-slate-100 border-none rounded-lg text-sm w-64 focus:ring-1 focus:ring-[#F53D0A] focus:bg-white transition-all outline-none text-slate-700 placeholder-slate-400" placeholder="Search tickets, customers..." type="text"/>
+</div>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-600 hover:text-slate-900 font-medium" href="#">Queue</a>
+<a class="text-slate-600 hover:text-slate-900 font-medium" href="#">SLA</a>
+<a class="text-slate-600 hover:text-slate-900 font-medium" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[#F53D0A] hover:bg-orange-50 px-3 py-1.5 rounded-md font-medium transition-colors">Upgrade</button>
+<div class="flex items-center gap-2 border-l border-slate-200 pl-4">
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 transition-colors relative">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-[#F53D0A] rounded-full border-2 border-white"></span>
+</button>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-[20px]">history</span>
+</button>
+<div class="ml-2 w-8 h-8 rounded-full bg-slate-200 overflow-hidden border border-slate-300 cursor-pointer">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a smiling professional man with short dark hair wearing a blue button-down shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-3B4uMl4TnbAtQTh2a2idzfwhn201bq-63zB26Yuss-V3GClrMNW-vchkUzf44T_ABTCErZOKv1fHnBIYnngVVHXl-_PHWV_axNcJs8nuGegvInHlzJ2rbjYSoHrdXefPQXI7-ogfhxds4aIUO59nPTnXf-NPl5tjdhIGFLKoGW59cjSVotojYsHPLzZdJqhdfJ6sEphi5xGyoDN44kq2UoyXFaHYGXcY-OAg2AzNMuetDgCfwB4-Jqlxgk5BAuUsnUYfWtzZr1Qg"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-24 px-8 pb-12 max-w-container-max">
+<!-- Welcome Section -->
+<div class="mb-stack-lg">
+<h2 class="font-h1 text-h1 text-slate-900 mb-1">Good morning, Alex.</h2>
+<p class="font-body-md text-body-md text-slate-500">You have 12 unresolved tickets requiring attention today.</p>
+</div>
+<!-- Quick Stats Bento -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-stack-lg">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-slate-200 micro-elevation flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-slate-500 uppercase tracking-wider">Open Tickets</span>
+<span class="material-symbols-outlined text-slate-400 text-[20px]">inbox</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display text-display text-slate-900">24</span>
+<span class="font-label-sm text-label-sm text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full flex items-center"><span class="material-symbols-outlined text-[14px] mr-1">arrow_downward</span> 12%</span>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-slate-200 micro-elevation flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-slate-500 uppercase tracking-wider">Unassigned</span>
+<span class="material-symbols-outlined text-[#F53D0A] text-[20px]">person_off</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display text-display text-[#F53D0A]">8</span>
+<span class="font-label-sm text-label-sm text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full flex items-center"><span class="material-symbols-outlined text-[14px] mr-1">arrow_upward</span> 4</span>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-slate-200 micro-elevation flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-slate-500 uppercase tracking-wider">Avg Response Time</span>
+<span class="material-symbols-outlined text-slate-400 text-[20px]">timer</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display text-display text-slate-900">1.2<span class="text-xl text-slate-500 ml-1">hrs</span></span>
+<span class="font-label-sm text-label-sm text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">On track</span>
+</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-slate-200 micro-elevation flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-slate-500 uppercase tracking-wider">CSAT Score</span>
+<span class="material-symbols-outlined text-amber-500 text-[20px]">star</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display text-display text-slate-900">4.8</span>
+<span class="font-label-sm text-label-sm text-slate-500">/ 5.0</span>
+</div>
+</div>
+</div>
+<!-- Main Layout: 2 Columns -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Left Col: Ticket List (Span 2) -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl border border-slate-200 micro-elevation overflow-hidden flex flex-col">
+<div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-white sticky top-0">
+<h3 class="font-h3 text-h3 text-slate-900">Recent Activity</h3>
+<button class="text-sm font-medium text-slate-500 hover:text-[#F53D0A] flex items-center gap-1 transition-colors">
+                        View all <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="divide-y divide-slate-100 overflow-y-auto max-h-[500px]">
+<!-- Ticket Item 1 -->
+<div class="p-6 hover:bg-slate-50 transition-colors group cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-rose-500"></span>
+<span class="font-mono text-mono text-slate-500">#TKT-8921</span>
+<span class="font-label-sm text-label-sm bg-rose-50 text-rose-700 px-2 py-0.5 rounded border border-rose-100">High Priority</span>
+</div>
+<span class="font-label-sm text-label-sm text-slate-400">10 mins ago</span>
+</div>
+<h4 class="font-h3 text-[16px] text-slate-900 mb-1 group-hover:text-[#F53D0A] transition-colors">Unable to access billing portal after upgrade</h4>
+<p class="font-body-md text-body-md text-slate-500 line-clamp-1 mb-3">Customer reports getting a 403 error when trying to view latest invoices. Attempted clearing cache but issue persists across multiple browsers.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Customer" class="w-full h-full object-cover" data-alt="portrait of a young woman with dark hair smiling gently against a blurred grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIN6dSufBbFNY3YdhB0xMVXftFNniHYgcD-IuWnKIv0KDxELo9oq-Q41RV7TAsKPv5m7VVxQNpi71tsEk4zp58hyqlHjwjX-qQXJn97btivssdFTox3SJcRmlGrSlwVjUKxsq_NW3yOsAkOxfhV3pmIE0ZLTtE3tLQz8Ja5hkozDXkc8Og8kabL2gB9aHO1YFU5xxFsg1nbkboag2hMwjEk7_xqJPX_XFRvM22BocwFMpHapnVF6zUuI4WaENPvn5vVFG8dTfIyErx"/>
+</div>
+<span class="font-body-md text-[13px] text-slate-600">Sarah Jenkins</span>
+<span class="text-slate-300 mx-1">•</span>
+<span class="font-body-md text-[13px] text-slate-500 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">domain</span> TechCorp Inc.</span>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-sm font-medium text-[#F53D0A]">Reply</button>
+</div>
+</div>
+<!-- Ticket Item 2 -->
+<div class="p-6 hover:bg-slate-50 transition-colors group cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-amber-400"></span>
+<span class="font-mono text-mono text-slate-500">#TKT-8920</span>
+<span class="font-label-sm text-label-sm bg-amber-50 text-amber-700 px-2 py-0.5 rounded border border-amber-100">Medium</span>
+</div>
+<span class="font-label-sm text-label-sm text-slate-400">1 hr ago</span>
+</div>
+<h4 class="font-h3 text-[16px] text-slate-900 mb-1 group-hover:text-[#F53D0A] transition-colors">Feature request: Export reports to PDF</h4>
+<p class="font-body-md text-body-md text-slate-500 line-clamp-1 mb-3">Would love to see the ability to export the monthly analytics dashboards directly to a formatted PDF for executive summaries.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-xs">
+                                     MR
+                                </div>
+<span class="font-body-md text-[13px] text-slate-600">Marcus Rowe</span>
+<span class="text-slate-300 mx-1">•</span>
+<span class="font-body-md text-[13px] text-slate-500 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">domain</span> Global Logistics</span>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-sm font-medium text-[#F53D0A]">Reply</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Col: Actions & SLA -->
+<div class="flex flex-col gap-gutter">
+<!-- Quick Actions Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-slate-200 micro-elevation p-6">
+<h3 class="font-h3 text-[16px] text-slate-900 mb-4">Quick Actions</h3>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg border border-slate-100 bg-slate-50 hover:bg-slate-100 hover:border-slate-200 transition-all">
+<span class="material-symbols-outlined text-slate-600">person_add</span>
+<span class="font-label-sm text-label-sm text-slate-700">Add User</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg border border-slate-100 bg-slate-50 hover:bg-slate-100 hover:border-slate-200 transition-all">
+<span class="material-symbols-outlined text-slate-600">article</span>
+<span class="font-label-sm text-label-sm text-slate-700">New Article</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg border border-slate-100 bg-slate-50 hover:bg-slate-100 hover:border-slate-200 transition-all col-span-2">
+<span class="material-symbols-outlined text-slate-600">autorenew</span>
+<span class="font-label-sm text-label-sm text-slate-700">Run Macro</span>
+</button>
+</div>
+</div>
+<!-- SLA Warning Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-amber-200 micro-elevation p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-amber-400"></div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-amber-500 mt-0.5">warning</span>
+<div>
+<h3 class="font-h3 text-[16px] text-slate-900 mb-1">SLA Risk Warning</h3>
+<p class="font-body-md text-sm text-slate-600 mb-3">3 tickets are approaching SLA breach within the next hour.</p>
+<button class="text-sm font-medium text-amber-700 hover:text-amber-800 transition-colors underline underline-offset-2">Review Tickets</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

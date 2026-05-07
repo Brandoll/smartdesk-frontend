@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartDesk Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "tertiary-fixed-dim": "#a6c8ff",
+                        "on-secondary-fixed": "#131b2e",
+                        "outline": "#926f67",
+                        "primary-fixed-dim": "#ffb4a2",
+                        "surface-tint": "#b52700",
+                        "secondary-fixed": "#dae2fd",
+                        "background": "#fff8f6",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#dae2fd",
+                        "on-tertiary-fixed-variant": "#004787",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "on-primary-fixed-variant": "#8a1c00",
+                        "surface-container-low": "#fff0ed",
+                        "secondary": "#565e74",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#281713",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#ffede9",
+                        "surface-container": "#ffe9e4",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#005cac",
+                        "surface-container-high": "#ffe2db",
+                        "surface": "#fff8f6",
+                        "tertiary-fixed": "#d5e3ff",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#ffdad2",
+                        "primary": "#b02600",
+                        "surface-bright": "#fff8f6",
+                        "outline-variant": "#e7bdb4",
+                        "on-tertiary-fixed": "#001c3b",
+                        "on-surface": "#281713",
+                        "tertiary-container": "#0075d7",
+                        "surface-dim": "#f3d3cb",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#fffbff",
+                        "on-tertiary-container": "#fefcff",
+                        "primary-container": "#dd3200",
+                        "inverse-surface": "#402c27",
+                        "on-primary-fixed": "#3d0700",
+                        "surface-variant": "#fcdbd4",
+                        "on-secondary-container": "#5c647a",
+                        "inverse-primary": "#ffb4a2",
+                        "surface-container-highest": "#fcdbd4",
+                        "on-surface-variant": "#5d4039"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-md": "16px",
+                        "container-max": "1440px",
+                        "gutter": "24px",
+                        "stack-lg": "32px",
+                        "margin-page": "40px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display": ["Inter"],
+                        "h3": ["Inter"],
+                        "h2": ["Inter"],
+                        "h1": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "h3": ["18px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "h2": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "h1": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+                        "mono": ["13px", { "lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased min-h-screen">
+<!-- SideNavBar -->
+<nav class="bg-slate-50 h-screen w-64 border-r fixed left-0 top-0 border-r border-slate-200 font-inter antialiased text-sm font-medium flex flex-col h-full py-6 px-4 z-20">
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="w-8 h-8 rounded-lg bg-[#F53D0A] flex items-center justify-center text-white font-bold shrink-0">
+                S
+            </div>
+<div>
+<h1 class="text-xl font-bold text-slate-900 leading-tight">SmartDesk</h1>
+<p class="text-slate-500 text-xs">Admin Console</p>
+</div>
+</div>
+<button class="w-full bg-[#F53D0A] text-white rounded-lg py-2.5 px-4 mb-6 flex items-center justify-center gap-2 font-semibold hover:bg-orange-600 transition-colors duration-200 ease-in-out shadow-sm">
+<span class="material-symbols-outlined text-[20px]">add</span>
+            New Ticket
+        </button>
+<ul class="flex-1 space-y-1 overflow-y-auto">
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#F53D0A] bg-orange-50 font-semibold transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                    Dashboard
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">confirmation_number</span>
+                    Tickets
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+                    Customers
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_stories</span>
+                    Knowledge Base
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">monitoring</span>
+                    Analytics
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                    Settings
+                </a>
+</li>
+</ul>
+<div class="mt-auto pt-4 border-t border-slate-200 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+                Log Out
+            </a>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="bg-white/80 backdrop-blur-md font-inter text-sm fixed top-0 right-0 border-b border-b border-slate-200 shadow-sm flex justify-between items-center h-16 px-8 ml-64 w-[calc(100%-16rem)] z-10">
+<div class="flex items-center gap-6 flex-1">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-[#F53D0A] focus:ring-1 focus:ring-[#F53D0A] transition-all duration-200 placeholder:text-slate-400" placeholder="Search tickets..." type="text"/>
+</div>
+<nav class="hidden lg:flex items-center gap-6 ml-4">
+<a class="text-slate-600 hover:text-slate-900 transition-all duration-200 font-medium" href="#">Queue</a>
+<a class="text-slate-600 hover:text-slate-900 transition-all duration-200 font-medium" href="#">SLA</a>
+<a class="text-slate-600 hover:text-slate-900 transition-all duration-200 font-medium" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-4 py-2 border border-slate-200 text-slate-700 rounded-lg font-medium hover:bg-slate-50 hover:text-slate-900 transition-all duration-200">
+                Upgrade
+            </button>
+<div class="flex items-center gap-2 border-r border-slate-200 pr-4">
+<button class="p-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="p-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]">history</span>
+</button>
+</div>
+<div class="pl-2">
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-slate-200 object-cover" data-alt="professional headshot of a person looking at the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBywgg1r7xkwOHGLjlumgpnhjbP7WP3ORMiati0SisJIbSgs6g-pWly-0_tXP9mXdcYuP30oyflzit_ROLaDiGpb8PXKZtsg0q3VYdGx30Jw7zOVDzhKw6MORsZ6mzsms6-_JNb5DrA-BEvnMevVBcPFWn8TpqX11mZo7WzS2dyEHtAkkIB4Bzd7N2GHIEfTZ8BwhMdFD73emukFbVj5Vbsnc2chSaPCRgkBl7BteUN9ecmZzT92xIyMoFyZkaCztAvmvlFN5Q9CgQt"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-64 mt-16 p-margin-page max-w-container-max mx-auto">
+<div class="flex flex-col gap-stack-lg">
+<!-- Page Header -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-h1 text-h1 text-on-surface">Overview</h2>
+<p class="font-body-lg text-body-lg text-secondary mt-1">Here's what's happening in your support queue today.</p>
+</div>
+<div class="flex gap-stack-sm">
+<button class="px-4 py-2 bg-surface border border-outline-variant rounded-lg font-label-sm text-label-sm text-on-surface hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                        Last 7 Days
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] relative overflow-hidden flex flex-col justify-between h-40">
+<div class="flex justify-between items-start z-10">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Open Tickets</span>
+<div class="w-8 h-8 rounded-full bg-error-container text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">inbox</span>
+</div>
+</div>
+<div class="z-10">
+<div class="flex items-baseline gap-3">
+<span class="font-display text-display text-on-surface">1,248</span>
+<span class="font-label-sm text-label-sm text-error bg-error-container/50 px-2 py-1 rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12%
+                            </span>
+</div>
+</div>
+<!-- Decorative background element -->
+<div class="absolute -right-8 -bottom-8 w-32 h-32 bg-error-container/20 rounded-full blur-2xl"></div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] relative overflow-hidden flex flex-col justify-between h-40">
+<div class="flex justify-between items-start z-10">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Avg Resolution Time</span>
+<div class="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">timer</span>
+</div>
+</div>
+<div class="z-10">
+<div class="flex items-baseline gap-3">
+<span class="font-display text-display text-on-surface">2.4h</span>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary-fixed px-2 py-1 rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_down</span> -5%
+                            </span>
+</div>
+</div>
+<div class="absolute -right-8 -bottom-8 w-32 h-32 bg-tertiary-container/20 rounded-full blur-2xl"></div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] relative overflow-hidden flex flex-col justify-between h-40">
+<div class="flex justify-between items-start z-10">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Customer CSAT</span>
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">sentiment_satisfied</span>
+</div>
+</div>
+<div class="z-10">
+<div class="flex items-baseline gap-3">
+<span class="font-display text-display text-on-surface">94%</span>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-fixed px-2 py-1 rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span> Steady
+                            </span>
+</div>
+</div>
+<div class="absolute -right-8 -bottom-8 w-32 h-32 bg-secondary-container/20 rounded-full blur-2xl"></div>
+</div>
+</div>
+<!-- Complex Area: Charts and Lists -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Main Chart Area -->
+<div class="lg:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] flex flex-col min-h-[400px]">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-h3 text-h3 text-on-surface">Ticket Volume by Category</h3>
+<button class="p-1.5 text-secondary hover:bg-surface-variant rounded-md transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Placeholder for high-end chart using pure CSS/HTML structures -->
+<div class="flex-1 relative w-full flex items-end gap-4 mt-auto pt-10">
+<!-- Y-axis lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none pb-8">
+<div class="w-full border-b border-dashed border-outline-variant/50 h-0 flex items-center relative"><span class="absolute -left-8 text-xs text-secondary font-mono">1K</span></div>
+<div class="w-full border-b border-dashed border-outline-variant/50 h-0 flex items-center relative"><span class="absolute -left-8 text-xs text-secondary font-mono">500</span></div>
+<div class="w-full border-b border-solid border-outline-variant h-0 flex items-center relative"><span class="absolute -left-8 text-xs text-secondary font-mono">0</span></div>
+</div>
+<!-- Bars -->
+<div class="flex-1 flex flex-col items-center gap-2 group z-10 h-full justify-end pb-8">
+<div class="w-full max-w-[48px] bg-primary/20 hover:bg-primary/40 rounded-t-sm relative transition-all duration-300 h-[45%]">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-sm transition-all duration-300 h-[60%]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary absolute bottom-0">Billing</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group z-10 h-full justify-end pb-8">
+<div class="w-full max-w-[48px] bg-primary/20 hover:bg-primary/40 rounded-t-sm relative transition-all duration-300 h-[80%]">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-sm transition-all duration-300 h-[40%]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary absolute bottom-0">Tech</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group z-10 h-full justify-end pb-8">
+<div class="w-full max-w-[48px] bg-primary/20 hover:bg-primary/40 rounded-t-sm relative transition-all duration-300 h-[30%]">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-sm transition-all duration-300 h-[80%]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary absolute bottom-0">Sales</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group z-10 h-full justify-end pb-8">
+<div class="w-full max-w-[48px] bg-primary/20 hover:bg-primary/40 rounded-t-sm relative transition-all duration-300 h-[65%]">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-sm transition-all duration-300 h-[50%]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary absolute bottom-0">General</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group z-10 h-full justify-end pb-8">
+<div class="w-full max-w-[48px] bg-primary/20 hover:bg-primary/40 rounded-t-sm relative transition-all duration-300 h-[90%]">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-sm transition-all duration-300 h-[70%]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary absolute bottom-0">Product</span>
+</div>
+</div>
+</div>
+<!-- Recent Activity / High Priority List -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-0 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] flex flex-col">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-h3 text-h3 text-on-surface">Urgent Queue</h3>
+<span class="bg-error-container text-on-error-container font-label-sm text-label-sm px-2 py-0.5 rounded-full">4 Active</span>
+</div>
+<div class="flex flex-col">
+<!-- Item 1 -->
+<div class="p-4 border-b border-outline-variant/50 hover:bg-surface-container-low cursor-pointer transition-colors flex gap-4">
+<div class="w-10 h-10 rounded-full bg-error-container text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md text-on-surface font-medium truncate">Server Downtime in EU-West</p>
+<p class="font-label-sm text-label-sm text-secondary mt-1">Acme Corp • 15m ago</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-4 border-b border-outline-variant/50 hover:bg-surface-container-low cursor-pointer transition-colors flex gap-4">
+<img alt="Customer avatar" class="w-10 h-10 rounded-full object-cover shrink-0" data-alt="professional corporate headshot of female executive" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBekNEDm4hZRCHho30-QSINkQ2J3cx954sYi2Weazm7Cw9-yi_A7k3vYL5FCmj8MX1IodcdNqvp2gWsQKLN0R42uyQcDUgsV1AMCsHFt8Rza6BPd9Io3tK4DvDEVldXYEn2Zc4jLeSuUyTtSzc8_iGPd0TgbG1UIMj9k9LM4hNtCvtUBExsza7WzRSuTM0lVCeXKeOy70vGNaONTvI8NyiYmE6u5b2o_Q3rIPe2t_XSkMISfngIqQmQM2xp2PPGcjGBC_wS2iE6eKZZ"/>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md text-on-surface font-medium truncate">Payment Gateway Failure</p>
+<p class="font-label-sm text-label-sm text-secondary mt-1">Stark Industries • 1h ago</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-4 hover:bg-surface-container-low cursor-pointer transition-colors flex gap-4">
+<img alt="Customer avatar" class="w-10 h-10 rounded-full object-cover shrink-0" data-alt="professional corporate headshot of male executive" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvuRpSn2-Ms8RwIrU4BCZft_BzFE45FVkLXnjFbw5psPeF5Nx3oqmk-5AvjlfKzpeZRM4_5ZBRi6a9SHphx_e6XJIPPr_pdHXkT7asTapFZ1CJzfruZbgea_E3_Yt1PuYjMapGZetzkj2ercjimMjF4bHaNtE0FcWUdp92WJC9RtRqr_XxV1QadmW2IaWzdFSq9L4qKeqd5Y3Yy-wJKGgYJdx4UELnpEj1fkJUJei9vnzxrr-cwqdti_3vA41S9cw4YZFBV44V98cD"/>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md text-on-surface font-medium truncate">Enterprise License Upgrade</p>
+<p class="font-label-sm text-label-sm text-secondary mt-1">Wayne Enterprises • 2h ago</p>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-outline-variant mt-auto text-center">
+<a class="font-label-sm text-label-sm text-primary hover:text-primary-container transition-colors" href="#">View All Urgent Tickets</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartDesk - Registro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#fefcff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#001c3b",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-bright": "#fff8f6",
+                        "surface-dim": "#f3d3cb",
+                        "surface-container-high": "#ffe2db",
+                        "on-surface-variant": "#5d4039",
+                        "primary-fixed-dim": "#ffb4a2",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-tint": "#b52700",
+                        "on-tertiary-fixed-variant": "#004787",
+                        "surface-variant": "#fcdbd4",
+                        "outline-variant": "#e7bdb4",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#dd3200",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#ffe9e4",
+                        "inverse-on-surface": "#ffede9",
+                        "surface": "#fff8f6",
+                        "primary-fixed": "#ffdad2",
+                        "on-surface": "#281713",
+                        "surface-container-low": "#fff0ed",
+                        "primary": "#b02600",
+                        "on-primary-fixed": "#3d0700",
+                        "on-primary-fixed-variant": "#8a1c00",
+                        "background": "#fff8f6",
+                        "tertiary": "#005cac",
+                        "secondary": "#5d5f5f",
+                        "surface-container-highest": "#fcdbd4",
+                        "on-secondary-container": "#616363",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#402c27",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#dfe0e0",
+                        "on-error": "#ffffff",
+                        "outline": "#926f67",
+                        "tertiary-container": "#0075d7",
+                        "tertiary-fixed": "#d5e3ff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#a6c8ff",
+                        "on-background": "#281713",
+                        "inverse-primary": "#ffb4a2",
+                        "on-primary-container": "#fffbff",
+                        "on-secondary-fixed": "#1a1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "48px",
+                        "container-max": "1440px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Inter"],
+                        "h3": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h1": ["Inter"],
+                        "body-md": ["Inter"],
+                        "mono": ["JetBrains Mono, monospace"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h2": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h3": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "mono": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex items-center justify-center p-md sm:p-lg antialiased text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<div class="w-full max-w-[1000px] bg-surface-container-lowest rounded-xl shadow-[0px_4px_24px_rgba(0,0,0,0.05),_0px_1px_4px_rgba(0,0,0,0.05)] flex overflow-hidden border border-outline-variant/30">
+<!-- Left Panel: Branding / Visual (Hidden on smaller screens) -->
+<div class="hidden lg:flex lg:w-5/12 bg-surface-container-low flex-col justify-between p-xl relative border-r border-outline-variant/30">
+<div class="z-10">
+<div class="flex items-center gap-sm mb-xl">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">widgets</span>
+</div>
+<span class="font-h3 text-h3 text-on-surface tracking-tight font-black">SmartDesk</span>
+</div>
+<h1 class="font-h2 text-h2 text-on-surface mb-sm">Escala tu soporte de manera inteligente.</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Únete a cientos de equipos que gestionan sus operaciones diarias con claridad y enfoque.</p>
+</div>
+<div class="absolute bottom-0 right-0 w-full h-[60%] opacity-80 mix-blend-multiply" data-alt="abstract geometric 3d shapes in warm white and subtle orange tones representing organization and structure with soft studio lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCmki4wkWpkTeQWGB0pj2lSGdxmvGFYhzh1HHY1AkpXQhPP5JqSl0AaLgWJzbRP7ylD8RuwwS-kNvpzRMJocCqygobjKcSiw58wSL275-FiOQ5Mf3KP_13tu2Ighe8WPJYrUZMZB7LuqIcUYfCJk-_zdk0AIJOm5UnHTqTOmddBtsR1jku3ytIArh0rtMHVXENWLY6osOKJYLvDiZDwMWslOTJ7IWheHnXt0ZjzQIQN02CsbD7-4PuLBXUdeK6hkPbvehQYZwtiC8XJ'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+</div>
+<div class="z-10 mt-auto">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sin tarjeta de crédito requerida</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Prueba gratuita de 14 días</span>
+</div>
+</div>
+</div>
+<!-- Right Panel: Registration Form -->
+<div class="w-full lg:w-7/12 p-lg sm:p-[48px] flex flex-col justify-center bg-surface-container-lowest">
+<!-- Mobile Header Logo (Visible only when left panel is hidden) -->
+<div class="flex lg:hidden items-center gap-sm mb-lg">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">widgets</span>
+</div>
+<span class="font-h3 text-h3 text-on-surface tracking-tight font-black">SmartDesk</span>
+</div>
+<div class="mb-xl">
+<h2 class="font-h1 text-h1 text-on-surface mb-xs font-bold tracking-tight">Crear una cuenta</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Ingresa tus datos para comenzar tu prueba gratuita.</p>
+</div>
+<form action="#" class="space-y-md" method="POST">
+<div class="flex flex-col sm:flex-row gap-md">
+<div class="w-full sm:w-1/2">
+<label class="block font-label-caps text-label-caps text-on-surface mb-xs" for="names">Nombres</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/60 rounded-lg p-[12px] font-body-md text-body-md text-on-surface placeholder:text-outline/70 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all hover:border-outline-variant" id="names" name="names" placeholder="Ej. Juan Carlos" required="" type="text"/>
+</div>
+<div class="w-full sm:w-1/2">
+<label class="block font-label-caps text-label-caps text-on-surface mb-xs" for="surnames">Apellidos</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/60 rounded-lg p-[12px] font-body-md text-body-md text-on-surface placeholder:text-outline/70 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all hover:border-outline-variant" id="surnames" name="surnames" placeholder="Ej. Pérez Gómez" required="" type="text"/>
+</div>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface mb-xs" for="email">Correo electrónico</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/60 rounded-lg p-[12px] font-body-md text-body-md text-on-surface placeholder:text-outline/70 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all hover:border-outline-variant" id="email" name="email" placeholder="tu@empresa.com" required="" type="email"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface mb-xs" for="password">Contraseña</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/60 rounded-lg p-[12px] font-body-md text-body-md text-on-surface placeholder:text-outline/70 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all hover:border-outline-variant" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Mínimo 8 caracteres.</p>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface mb-xs" for="confirm_password">Confirmar contraseña</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/60 rounded-lg p-[12px] font-body-md text-body-md text-on-surface placeholder:text-outline/70 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all hover:border-outline-variant" id="confirm_password" name="confirm_password" placeholder="••••••••" required="" type="password"/>
+</div>
+<div class="pt-sm">
+<button class="w-full bg-[#F53D0A] text-on-primary font-body-lg text-body-lg font-semibold py-[14px] rounded-lg hover:bg-[#dd3200] hover:shadow-md transition-all flex justify-center items-center gap-sm shadow-sm" type="submit">
+                        Crear cuenta
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</form>
+<div class="mt-xl text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    ¿Ya tienes una cuenta? 
+                    <a class="text-primary hover:text-primary-container font-semibold transition-colors hover:underline underline-offset-2" href="#">Inicia sesión aquí</a>
+</p>
+</div>
+<div class="mt-md text-center">
+<p class="font-body-sm text-body-sm text-outline">
+                    Al registrarte, aceptas nuestros <a class="underline hover:text-on-surface-variant underline-offset-2" href="#">Términos de Servicio</a> y <a class="underline hover:text-on-surface-variant underline-offset-2" href="#">Política de Privacidad</a>.
+                </p>
+</div>
+</div>
+</div>
+</body></html>

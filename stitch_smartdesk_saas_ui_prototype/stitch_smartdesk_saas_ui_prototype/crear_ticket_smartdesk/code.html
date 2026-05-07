@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Ticket - SmartDesk</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-container": "#fefcff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-fixed": "#001c3b",
+                      "secondary-fixed": "#e2e2e2",
+                      "surface-bright": "#fff8f6",
+                      "surface-dim": "#f3d3cb",
+                      "surface-container-high": "#ffe2db",
+                      "on-surface-variant": "#5d4039",
+                      "primary-fixed-dim": "#ffb4a2",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "on-secondary-fixed-variant": "#454747",
+                      "surface-tint": "#b52700",
+                      "on-tertiary-fixed-variant": "#004787",
+                      "surface-variant": "#fcdbd4",
+                      "outline-variant": "#e7bdb4",
+                      "on-tertiary": "#ffffff",
+                      "primary-container": "#dd3200",
+                      "on-error-container": "#93000a",
+                      "surface-container": "#ffe9e4",
+                      "inverse-on-surface": "#ffede9",
+                      "surface": "#fff8f6",
+                      "primary-fixed": "#ffdad2",
+                      "on-surface": "#281713",
+                      "surface-container-low": "#fff0ed",
+                      "primary": "#b02600",
+                      "on-primary-fixed": "#3d0700",
+                      "on-primary-fixed-variant": "#8a1c00",
+                      "background": "#fff8f6",
+                      "tertiary": "#005cac",
+                      "secondary": "#5d5f5f",
+                      "surface-container-highest": "#fcdbd4",
+                      "on-secondary-container": "#616363",
+                      "error": "#ba1a1a",
+                      "inverse-surface": "#402c27",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#dfe0e0",
+                      "on-error": "#ffffff",
+                      "outline": "#926f67",
+                      "tertiary-container": "#0075d7",
+                      "tertiary-fixed": "#d5e3ff",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed-dim": "#a6c8ff",
+                      "on-background": "#281713",
+                      "inverse-primary": "#ffb4a2",
+                      "on-primary-container": "#fffbff",
+                      "on-secondary-fixed": "#1a1c1c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "xs": "4px",
+                      "xl": "48px",
+                      "container-max": "1440px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "gutter": "24px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "h2": [
+                              "Inter"
+                      ],
+                      "h3": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "h1": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "mono": [
+                              "JetBrains Mono, monospace"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "h2": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "h3": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "h1": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "mono": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-[#F9FAFB] text-on-background font-body-md text-body-md antialiased min-h-screen flex">
+<!-- SideNavBar (WEB ONLY) -->
+<aside class="hidden md:flex bg-white text-[#F53D0A] font-['Inter'] text-sm font-medium h-screen w-64 border-r fixed left-0 top-0 border-gray-200 shadow-none flex-col py-6 z-50">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-[#F53D0A] flex items-center justify-center text-white font-bold">
+                S
+            </div>
+<div>
+<h2 class="text-lg font-black tracking-tight text-gray-900">SmartDesk</h2>
+<p class="text-gray-500 font-body-sm text-body-sm font-normal">Internal Management</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-gray-900 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-gray-900 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+                Usuarios
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-gray-900 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">domain</span>
+                Áreas
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-[#F53D0A] bg-orange-50 border-r-4 border-[#F53D0A] duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">confirmation_number</span>
+                Tickets
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-gray-900 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+                Reportes
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-gray-900 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                Configuración
+            </a>
+</nav>
+<div class="px-4 mt-auto">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+<img alt="User avatar" class="w-8 h-8 rounded-full" data-alt="Close-up portrait of a professional man in a bright modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe0Kb8Znxk3gQ9Fz4zK12ZPPsOgp1btMBjSTfrpMtYO2EISz35eOb_D11ETIkBurCckTaAY9fZ5lOvaCAwRn3F5-n6xPvl9JrHi8_CPci2fvXHjy43CklbHe3ICR6AJcJp63EJ6bu8jaqBhH0gC6ojKtGcGaGxitLSrp6MPNUT47u9jIOO_dDjxOPKqcFfqWfgqm0Q99kJ3INcQA_1DpxV8RJMi9-Kum2--uj267vn_yMB5gPHXekGp10svBP7J-ZMEiAiCwQQF6SL"/>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-gray-900">Admin User</span>
+<span class="text-xs text-gray-500">IT Support</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col md:ml-64 w-full min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-white text-[#F53D0A] font-['Inter'] antialiased docked full-width top-0 border-b border-gray-200 shadow-sm flex justify-between items-center h-16 px-6 w-full sticky top-0 z-40">
+<div class="flex items-center gap-4 md:hidden">
+<button class="text-gray-500 hover:text-gray-900">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="text-xl font-bold text-gray-900 tracking-tight">SmartDesk</span>
+</div>
+<div class="flex-1 flex items-center gap-4 md:gap-6 justify-end w-full">
+<div class="relative w-full max-w-md hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-gray-50 border-none rounded-lg text-sm focus:ring-2 focus:ring-[#F53D0A] focus:bg-white transition-colors placeholder-gray-400" placeholder="Search..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-gray-500 hover:bg-gray-50 rounded-full transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-gray-500 hover:bg-gray-50 rounded-full transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="md:hidden ml-2">
+<img alt="User profile photo" class="w-8 h-8 rounded-full border border-gray-200" data-alt="Close-up portrait of a professional man in a bright modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX89ZlEm2ltZvl0m1wu1exJaYnDr6q6MrOqgCPalP8RH53xvKnuggAVCwkmqpVlm5H1VRgRTKwR60ZAzEzU400rnr1W3WpVSbjQEns1dBPGe8cjVl2-m1kXUg2YO9CMmCZ66y70WV4Tpdho4GUw2Cbc2bwQ021FwILTNSdGjnvhYvSU935j_nwvxk0naBaGj6yUXt0u0dwNyzlQSnMo2NCeJxdJhXRHM79RzGmR_q-zt2aO67v9zJqnA0kh8vNHHE3dMRfxtNK4Qef"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 p-4 md:p-lg max-w-3xl mx-auto w-full">
+<!-- Breadcrumbs & Header -->
+<div class="mb-8">
+<nav aria-label="Breadcrumb" class="flex text-sm text-gray-500 mb-2">
+<ol class="flex items-center space-x-2">
+<li><a class="hover:text-gray-900 transition-colors" href="#">Tickets</a></li>
+<li><span class="material-symbols-outlined text-[16px]">chevron_right</span></li>
+<li aria-current="page" class="text-gray-900 font-medium">Crear nuevo</li>
+</ol>
+</nav>
+<div class="flex items-center justify-between">
+<div>
+<h1 class="font-h1 text-h1 text-gray-900">Crear Ticket</h1>
+<p class="text-gray-500 mt-1">Por favor, detalla tu solicitud para que podamos ayudarte mejor.</p>
+</div>
+</div>
+</div>
+<!-- Form Card -->
+<div class="bg-white rounded-xl shadow-[0px_1px_3px_rgba(0,0,0,0.05),0px_1px_2px_rgba(0,0,0,0.1)] border border-gray-200 overflow-hidden">
+<div class="p-6 md:p-8">
+<form action="#" class="space-y-6" method="POST">
+<!-- Subject -->
+<div>
+<label class="block font-label-caps text-label-caps text-gray-700 uppercase mb-2" for="subject">Asunto</label>
+<input class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-[#F53D0A] focus:ring focus:ring-[#F53D0A] focus:ring-opacity-10 sm:text-sm transition-all" id="subject" name="subject" placeholder="Ej. Problema con acceso a correo" type="text"/>
+</div>
+<!-- Grid for Dropdowns -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Area Dropdown -->
+<div>
+<label class="block font-label-caps text-label-caps text-gray-700 uppercase mb-2" for="area">Área Responsable</label>
+<div class="relative">
+<select class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-[#F53D0A] focus:ring focus:ring-[#F53D0A] focus:ring-opacity-10 sm:text-sm appearance-none bg-white transition-all" id="area" name="area">
+<option disabled="" selected="" value="">Selecciona un área...</option>
+<option value="it">Soporte IT</option>
+<option value="rrhh">Recursos Humanos</option>
+<option value="maint">Mantenimiento</option>
+<option value="finance">Finanzas</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Priority Dropdown -->
+<div>
+<label class="block font-label-caps text-label-caps text-gray-700 uppercase mb-2" for="priority">Prioridad</label>
+<div class="relative">
+<select class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-[#F53D0A] focus:ring focus:ring-[#F53D0A] focus:ring-opacity-10 sm:text-sm appearance-none bg-white transition-all" id="priority" name="priority">
+<option value="low">Baja</option>
+<option selected="" value="medium">Media</option>
+<option value="high">Alta</option>
+<option value="critical">Crítica</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Description -->
+<div>
+<label class="block font-label-caps text-label-caps text-gray-700 uppercase mb-2" for="description">Descripción</label>
+<div class="mt-1">
+<textarea class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-[#F53D0A] focus:ring focus:ring-[#F53D0A] focus:ring-opacity-10 sm:text-sm transition-all resize-y" id="description" name="description" placeholder="Describe el problema o solicitud con el mayor detalle posible..." rows="5"></textarea>
+</div>
+<p class="mt-2 text-xs text-gray-500">Puedes incluir pasos para reproducir el problema si aplica.</p>
+</div>
+<!-- File Upload (Optional enhancement based on form context) -->
+<div class="border-2 border-dashed border-gray-300 rounded-lg p-6 flex flex-col items-center justify-center text-center hover:bg-gray-50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-gray-400 text-3xl mb-2">cloud_upload</span>
+<span class="text-sm text-gray-600 font-medium">Adjuntar archivos</span>
+<span class="text-xs text-gray-400 mt-1">PNG, JPG, PDF hasta 10MB</span>
+</div>
+<!-- Actions -->
+<div class="pt-6 mt-6 border-t border-gray-100 flex items-center justify-end gap-4">
+<button class="px-4 py-2 bg-white border border-gray-200 text-gray-700 rounded-lg font-medium text-sm hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 shadow-sm" type="button">
+                                Cancelar
+                            </button>
+<button class="px-6 py-2 bg-[#F53D0A] text-white rounded-lg font-medium text-sm hover:bg-[#d63508] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#F53D0A] shadow-sm flex items-center gap-2" type="submit">
+<span class="material-symbols-outlined text-[18px]">send</span>
+                                Crear ticket
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+</body></html>

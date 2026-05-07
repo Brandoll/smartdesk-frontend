@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartDesk - Tickets</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#fefcff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#001c3b",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-bright": "#fff8f6",
+                        "surface-dim": "#f3d3cb",
+                        "surface-container-high": "#ffe2db",
+                        "on-surface-variant": "#5d4039",
+                        "primary-fixed-dim": "#ffb4a2",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-tint": "#b52700",
+                        "on-tertiary-fixed-variant": "#004787",
+                        "surface-variant": "#fcdbd4",
+                        "outline-variant": "#e7bdb4",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#dd3200",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#ffe9e4",
+                        "inverse-on-surface": "#ffede9",
+                        "surface": "#fff8f6",
+                        "primary-fixed": "#ffdad2",
+                        "on-surface": "#281713",
+                        "surface-container-low": "#fff0ed",
+                        "primary": "#b02600",
+                        "on-primary-fixed": "#3d0700",
+                        "on-primary-fixed-variant": "#8a1c00",
+                        "background": "#fff8f6",
+                        "tertiary": "#005cac",
+                        "secondary": "#5d5f5f",
+                        "surface-container-highest": "#fcdbd4",
+                        "on-secondary-container": "#616363",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#402c27",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#dfe0e0",
+                        "on-error": "#ffffff",
+                        "outline": "#926f67",
+                        "tertiary-container": "#0075d7",
+                        "tertiary-fixed": "#d5e3ff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#a6c8ff",
+                        "on-background": "#281713",
+                        "inverse-primary": "#ffb4a2",
+                        "on-primary-container": "#fffbff",
+                        "on-secondary-fixed": "#1a1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "48px",
+                        "container-max": "1440px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Inter"],
+                        "h3": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h1": ["Inter"],
+                        "body-md": ["Inter"],
+                        "mono": ["JetBrains Mono, monospace"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h2": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "h3": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "h1": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "mono": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F9FAFB; }
+        .shadow-level-1 { box-shadow: 0px 1px 3px rgba(0,0,0,0.05), 0px 1px 2px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="font-body-md text-on-background flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="bg-white dark:bg-gray-900 font-['Inter'] text-sm font-medium h-screen w-64 border-r fixed left-0 top-0 border-gray-200 dark:border-gray-800 shadow-none flex flex-col h-full py-6 z-50 md:flex hidden">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-8 h-8 bg-[#F53D0A] rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg" style="font-variation-settings: 'FILL' 1;">widgets</span>
+</div>
+<div>
+<h1 class="text-lg font-black tracking-tight text-gray-900 dark:text-white leading-tight">SmartDesk</h1>
+<p class="text-xs text-gray-500">Internal Management</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Usuarios</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+<span>Áreas</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-[#F53D0A] bg-orange-50 dark:bg-orange-900/20 border-r-4 border-[#F53D0A] duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="confirmation_number" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+<span>Tickets</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+<span>Reportes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Configuración</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+<img alt="User profile photo" class="w-8 h-8 rounded-full border border-gray-200" data-alt="professional headshot of a man with short hair wearing a dark blue shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO0OsmU6JgJTkm81h0tof4PU2ZkBEj3V3JAib0NR-Zn4diClaxx70wUJERMS5orHrJUuPxR5P7HczGPZlIWORgRQQMEJYboBYqvoeyhhZwz748CCv8-BlXJSbr_v7ZKGyeP4dO_zFgwFs9dKBKpwg8WPjAJFtxPj9HbwumdyNnEp16VTDuKILx6vf8vrEBOaPcMKdbVS50iPkjszuJn04j0BsPU0-5jtKc3vRG5OErAoHwuVQk0l4oCa50X6Hcoaz5_qdJtdU1hASV"/>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-gray-900">Admin User</span>
+<span class="text-xs text-gray-500">admin@smartdesk.com</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col md:ml-64 w-full h-full">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-gray-900 font-['Inter'] antialiased docked full-width top-0 border-b border-gray-200 dark:border-gray-800 shadow-sm flex justify-between items-center h-16 px-6 w-full sticky z-40">
+<div class="flex items-center md:hidden">
+<span class="text-xl font-bold text-gray-900 dark:text-white">SmartDesk</span>
+</div>
+<div class="flex-1 max-w-md hidden md:flex items-center">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">search</span>
+<input class="w-full pl-9 pr-4 py-1.5 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#F53D0A] focus:ring-1 focus:ring-[#F53D0A]/10 transition-colors" placeholder="Search tickets..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4 ml-auto">
+<button class="text-gray-500 hover:text-gray-900 transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-gray-500 hover:text-gray-900 transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="md:hidden">
+<span class="material-symbols-outlined text-gray-500">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 overflow-y-auto p-4 md:p-6 lg:p-lg bg-[#F9FAFB]">
+<div class="max-w-[1200px] mx-auto space-y-6">
+<!-- Page Header & Actions -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<h2 class="font-h2 text-h2 text-gray-900">Tickets Management</h2>
+<p class="font-body-md text-body-md text-gray-500 mt-1">View, track, and manage all support requests.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                            Export
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-[#F53D0A] text-white rounded-lg text-sm font-medium shadow-sm hover:bg-[#dd3200] transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                            New Ticket
+                        </button>
+</div>
+</div>
+<!-- Filters Bar -->
+<div class="bg-white rounded-lg p-4 shadow-level-1 border border-gray-100 flex flex-wrap gap-4 items-center">
+<div class="flex items-center gap-2 text-sm text-gray-500 font-medium mr-2">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                        Filters:
+                    </div>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-full border border-yellow-200 bg-yellow-50 text-yellow-800 text-xs font-medium hover:bg-yellow-100 transition-colors flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+                            Pending
+                        </button>
+<button class="px-3 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-orange-800 text-xs font-medium hover:bg-orange-100 transition-colors flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-orange-400"></span>
+                            In Process
+                        </button>
+<button class="px-3 py-1.5 rounded-full border border-green-200 bg-green-50 text-green-800 text-xs font-medium hover:bg-green-100 transition-colors flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+                            Resolved
+                        </button>
+</div>
+<div class="h-6 w-px bg-gray-200 mx-2 hidden sm:block"></div>
+<div class="flex gap-3 w-full sm:w-auto">
+<select class="form-select bg-gray-50 border-gray-200 text-sm rounded-md py-1.5 pl-3 pr-8 focus:border-[#F53D0A] focus:ring-0 text-gray-700">
+<option value="">Priority: All</option>
+<option value="high">High</option>
+<option value="medium">Medium</option>
+<option value="low">Low</option>
+</select>
+<select class="form-select bg-gray-50 border-gray-200 text-sm rounded-md py-1.5 pl-3 pr-8 focus:border-[#F53D0A] focus:ring-0 text-gray-700">
+<option value="">Responsible: All</option>
+<option value="me">Assigned to Me</option>
+<option value="team">My Team</option>
+</select>
+</div>
+</div>
+<!-- Tickets Data Table -->
+<div class="bg-white rounded-lg shadow-level-1 border border-gray-100 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-gray-50 border-b border-gray-100 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+<th class="px-6 py-4">Ticket ID</th>
+<th class="px-6 py-4">Subject</th>
+<th class="px-6 py-4">Priority</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Responsible</th>
+<th class="px-6 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-100">
+<tr class="hover:bg-gray-50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="font-mono text-mono text-gray-900 font-medium">#SD-1042</span>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-medium text-gray-900">Login issue on mobile app</div>
+<div class="text-xs text-gray-500 mt-0.5 truncate max-w-xs">User reported unable to login after latest update</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 text-xs font-medium text-red-700 bg-red-50 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> High
+                                        </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                            Pending
+                                        </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<img alt="Avatar" class="w-6 h-6 rounded-full" data-alt="headshot of a man with glasses smiling softly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0kI6YzmTpuBD2q47xnWX1uaRFrsfsD1jW7Gy_OCH5UHPlPbGbKSwYnHw__a6Q3-roZwQsJoK27VF6oaAYRUuCB1FnXiCOGK-Q962TdSzsLTruiuWIa0usaXa6k1NBlBO1ZARDDkSJA8YIPACUxIIR2g4xl64-0YjE8WYDb6Rr9BFD7PlMfh4Uz7cLd4P8S9JV3DxJJ3L8QbemO7GwKw4RpKn9633akJHFvmwx5Sk9UAmO4XAoiW4AX1XcKZqT1uBQTZXREdU4V25_"/>
+<span class="text-sm text-gray-700">Alex M.</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-gray-400 hover:text-[#F53D0A] transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="text-gray-400 hover:text-[#F53D0A] transition-colors p-1 ml-2">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="font-mono text-mono text-gray-900 font-medium">#SD-1041</span>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-medium text-gray-900">Update API Documentation</div>
+<div class="text-xs text-gray-500 mt-0.5 truncate max-w-xs">Need to add new v2 endpoints to the public docs</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 text-xs font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">remove</span> Medium
+                                        </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                            In Process
+                                        </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<img alt="Avatar" class="w-6 h-6 rounded-full" data-alt="professional headshot of a woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-5SAQn4Vlcu-ryIVdJQ_dq13CE860_1cXQkOGdq2ukZ1R9TIzvB7psLsjtg335WacPlfIgYOumDYMNSguzEQ3Pxkps_GEjsbHyZu9FQQO3yk3fgIeCnTMfOPIVrX87m1y8m4VAQhjm_KkMAqIiHc1V3ZtAJV2MSecrIjY3KHa6XpZBzq_MswSiNZs13QTtmZEz5DYQIYYy1y6KuPaDuCKcn_HYXFFd7bparC5E8QhmM3djS-rKTQwPHziSS3lwJRtiPhKNFW4wu1c"/>
+<span class="text-sm text-gray-700">Sarah J.</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-gray-400 hover:text-[#F53D0A] transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="text-gray-400 hover:text-[#F53D0A] transition-colors p-1 ml-2">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="font-mono text-mono text-gray-900 font-medium">#SD-1038</span>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-medium text-gray-900">Database connection timeout</div>
+<div class="text-xs text-gray-500 mt-0.5 truncate max-w-xs">Intermittent connection drops during peak hours</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 text-xs font-medium text-green-700 bg-green-50 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">arrow_downward</span> Low
+                                        </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                            Resolved
+                                        </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs font-bold">
+                                                TJ
+                                            </div>
+<span class="text-sm text-gray-700">Tom J.</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-gray-400 hover:text-[#F53D0A] transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="text-gray-400 hover:text-[#F53D0A] transition-colors p-1 ml-2">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="bg-white px-6 py-3 border-t border-gray-100 flex items-center justify-between sm:px-6">
+<div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+<div>
+<p class="text-sm text-gray-700">
+                                    Showing <span class="font-medium">1</span> to <span class="font-medium">10</span> of <span class="font-medium">97</span> results
+                                </p>
+</div>
+<div>
+<nav aria-label="Pagination" class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+<a class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-200 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50" href="#">
+<span class="sr-only">Previous</span>
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</a>
+<a aria-current="page" class="z-10 bg-orange-50 border-[#F53D0A] text-[#F53D0A] relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">
+                                        1
+                                    </a>
+<a class="bg-white border-gray-200 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">
+                                        2
+                                    </a>
+<a class="bg-white border-gray-200 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">
+                                        3
+                                    </a>
+<a class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-200 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50" href="#">
+<span class="sr-only">Next</span>
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</a>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
